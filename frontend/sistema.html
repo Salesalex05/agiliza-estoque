@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agiliza - Estoque PRO</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f4f7fb;padding:30px;}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;}
+header h1{color:#0f52ba;}
+
+.dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:30px;}
+.card{background:white;padding:20px;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.05);}
+.card h3{color:#555;font-size:14px;}
+.card p{font-size:22px;font-weight:600;margin-top:10px;}
+
+.form-container{background:white;padding:20px;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.05);margin-bottom:20px;}
+
+input,select{padding:10px;margin:5px;border-radius:8px;border:1px solid #ddd;}
+button{padding:8px 12px;border:none;border-radius:8px;cursor:pointer;margin:3px;}
+
+.btn-primary{background:#0f52ba;color:white;}
+.btn-warning{background:#ffa500;color:white;}
+.btn-danger{background:#ff4d4d;color:white;}
+.btn-success{background:#28a745;color:white;}
+
+table{width:100%;border-collapse:collapse;background:white;border-radius:15px;overflow:hidden;}
+th,td{padding:12px;text-align:center;}
+th{background:#0f52ba;color:white;}
+tr:nth-child(even){background:#f2f2f2;}
+.low-stock{background:#ffe5e5 !important;}
+
+.search-bar{margin-bottom:15px;}
+canvas{background:white;padding:15px;border-radius:15px;margin-top:20px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>📦 Agiliza Estoque PRO</h1>
+</header>
+
+<div class="dashboard">
+<div class="card"><h3>Total Produtos</h3><p id="totalProdutos">0</p></div>
+<div class="card"><h3>Total em Estoque</h3><p id="totalEstoque">0</p></div>
+<div class="card"><h3>Estoque Baixo</h3><p id="estoqueBaixo">0</p></div>
+</div>
+
+<div class="form-container">
+<select id="empresa">
+<option value="Empresa A">Empresa A</option>
+<option value="Empresa B">Empresa B</option>
+</select>
+
+<input type="text" id="nome" placeholder="Nome">
+<input type="text" id="codigo" placeholder="Código">
+<input type="number" id="quantidade" placeholder="Quantidade">
+<input type="text" id="categoria" placeholder="Categoria">
+
+<button class="btn-primary" onclick="salvarProduto()">Salvar</button>
+</div>
+
+<div class="search-bar">
+<input type="text" id="busca" placeholder="Buscar produto..." onkeyup="listar()">
+<button class="btn-success" onclick="exportarCSV()">Exportar Excel</button>
+<button class="btn-warning" onclick="exportarPDF()">Exportar PDF</button>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Empresa</th>
+<th>Nome</th>
+<th>Código</th>
+<th>Qtd</th>
+<th>Categoria</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody id="tabela"></tbody>
+</table>
+
+<canvas id="grafico"></canvas>
+
+<script>
+
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+let editIndex = null;
+let grafico;
+
+function salvarLocal(){
+localStorage.setItem("produtos", JSON.stringify(produtos));
+}
+
+function salvarProduto(){
+let empresa = document.getElementById("empresa").value;
+let nome = document.getElementById("nome").value;
+let codigo = document.getElementById("codigo").value;
+let quantidade = document.getElementById("quantidade").value;
+let categoria = document.getElementById("categoria").value;
+
+if(nome==""||codigo==""||quantidade==""){alert("Preencha os campos");return;}
+
+if(editIndex!==null){
+produtos[editIndex]={empresa,nome,codigo,quantidade,categoria};
+editIndex=null;
+}else{
+produtos.push({empresa,nome,codigo,quantidade,categoria});
+}
+
+salvarLocal();
+listar();
+limpar();
+}
+
+function listar(){
+let filtro = document.getElementById("busca").value.toLowerCase();
+let tabela = document.getElementById("tabela");
+tabela.innerHTML="";
+
+let totalEstoque=0,estoqueBaixo=0;
+
+produtos.forEach((p,index)=>{
+if(p.nome.toLowerCase().includes(filtro)){
+
+totalEstoque+=Number(p.quantidade);
+if(p.quantidade<=5)estoqueBaixo++;
+
+tabela.innerHTML+=`
+<tr class="${p.quantidade<=5?'low-stock':''}">
+<td>${p.empresa}</td>
+<td>${p.nome}</td>
+<td>${p.codigo}</td>
+<td>${p.quantidade}</td>
+<td>${p.categoria}</td>
+<td>
+<button class="btn-warning" onclick="editar(${index})">Editar</button>
+<button class="btn-danger" onclick="excluir(${index})">Excluir</button>
+<button class="btn-primary" onclick="movimentar(${index},1)">+ </button>
+<button class="btn-warning" onclick="movimentar(${index},-1)">- </button>
+</td>
+</tr>
+`;
+}
+});
+
+document.getElementById("totalProdutos").innerText=produtos.length;
+document.getElementById("totalEstoque").innerText=totalEstoque;
+document.getElementById("estoqueBaixo").innerText=estoqueBaixo;
+
+atualizarGrafico();
+}
+
+function movimentar(index,valor){
+produtos[index].quantidade=Number(produtos[index].quantidade)+valor;
+if(produtos[index].quantidade<0)produtos[index].quantidade=0;
+salvarLocal();
+listar();
+}
+
+function editar(index){
+let p=produtos[index];
+document.getElementById("empresa").value=p.empresa;
+document.getElementById("nome").value=p.nome;
+document.getElementById("codigo").value=p.codigo;
+document.getElementById("quantidade").value=p.quantidade;
+document.getElementById("categoria").value=p.categoria;
+editIndex=index;
+}
+
+function excluir(index){
+produtos.splice(index,1);
+salvarLocal();
+listar();
+}
+
+function limpar(){
+document.getElementById("nome").value="";
+document.getElementById("codigo").value="";
+document.getElementById("quantidade").value="";
+document.getElementById("categoria").value="";
+}
+
+function atualizarGrafico(){
+let nomes=produtos.map(p=>p.nome);
+let quantidades=produtos.map(p=>p.quantidade);
+
+if(grafico)grafico.destroy();
+
+grafico=new Chart(document.getElementById('grafico'),{
+type:'bar',
+data:{
+labels:nomes,
+datasets:[{
+label:'Quantidade em Estoque',
+data:quantidades,
+backgroundColor:'#0f52ba'
+}]
+}
+});
+}
+
+function exportarCSV(){
+let csv="Empresa,Nome,Codigo,Quantidade,Categoria\n";
+produtos.forEach(p=>{
+csv+=`${p.empresa},${p.nome},${p.codigo},${p.quantidade},${p.categoria}\n`;
+});
+let blob=new Blob([csv],{type:"text/csv"});
+let link=document.createElement("a");
+link.href=URL.createObjectURL(blob);
+link.download="estoque.csv";
+link.click();
+}
+
+function exportarPDF(){
+window.print();
+}
+
+listar();
+
+</script>
+
+</body>
+</html>

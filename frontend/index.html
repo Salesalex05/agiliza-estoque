@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Sobre - Agiliza Estoque</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:#f8fbff;
+    color:#2c3e50;
+}
+
+h1{
+    font-size:42px;
+    font-weight:700;
+    color:#0d2b52;
+}
+
+h2{
+    font-size:32px;
+    font-weight:600;
+    color:#0d2b52;
+}
+
+h3{
+    font-size:20px;
+    font-weight:600;
+    color:#0d2b52;
+}
+
+p{
+    font-size:16px;
+    line-height:1.7;
+    color:#5a6a85;
+}
+
+        
+        header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  background-color: #e6e6e6;
+}
+
+.logo img {
+  height: 70px;   /* controla o tamanho */
+  width: auto;    /* mantém a proporção */
+}
+        
+        
+        
+        @media(max-width:768px){
+    .banner{
+          .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 15px;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .logo img {
+        height: 65px;
+    }
+        
+        height:300px;
+    }
+}
+
+   
+/* HEADER */
+header {
+    background: #f1f1f1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.logo img {
+    height: 75px;   /* tamanho ideal */
+    width: auto;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* MENU */
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #0d47a1;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #1976d2;
+}
+
+
+.banner{
+    width:100%;
+    height:500px;
+    background-image: url("banner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color:#e6f0ff;
+}
+
+
+        body{
+    margin:0;
+    padding:0;
+    font-family: Arial;
+    background:#f4f8ff;
+}
+.logo img {
+    height: 70px;
+    width: auto;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+        
+        .banner{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+    .header{
+    width:100%;
+    background:#d9d9d9;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 40px;
+    box-sizing:border-box;
+}
+
+.menu{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo-menu img{
+    width:120px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.menu-links a{
+    text-decoration:none;
+    color:#0d2b52;
+    font-weight:500;
+    margin-left:30px;
+    position:relative;
+    transition:0.3s;
+}
+
+.menu-links a::after{
+    content:"";
+    width:0%;
+    height:2px;
+    background:#1b4f91;
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    transition:0.3s;
+}
+
+.menu-links a:hover::after{
+    width:100%;
+}
+
+.btn{
+    background:#0066cc;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+} 
+.conteudo{
+    padding:60px;
+    text-align:center;
+    background:white;
+}
+
+.conteudo h1{
+    color:#0066cc;
+}
+
+.conteudo p{
+    font-size:18px;
+    max-width:800px;
+    margin:auto;
+    margin-top:20px;
+}    
+    </style>
+
+     
+
+
+
+</head>
+
+<body>
+    
+<header>
+    <div class="container">
+        
+        <div class="logo">
+            <img src="agiliza.png" alt="Agiliza Estoque">
+        </div>
+
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="index.html">Sobre</a>
+            <a href="funcionalidades.html">Funcionalidades</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+
+    </div>
+</header>
+    
+  
+</div>
+    
+
+    <div class="banner">
+       </div>
+
+    <div class="conteudo">
+
+        <h1>Controle de Estoque de Forma Rápida e Inteligente</h1>
+
+        <p>
+            O Agiliza Estoque é um sistema desenvolvido para facilitar o
+            gerenciamento de produtos, entradas, saídas e relatórios em tempo real.
+        </p>
+
+        <p>
+            Com nossa plataforma você pode acompanhar seu estoque de qualquer lugar,
+            evitar perdas e melhorar a organização da sua empresa.
+        </p>
+
+    </div>
+
+</body>
+</html>

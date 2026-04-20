@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+     <title>funcionalidades - Agiliza Estoque</title>
+
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+       <body>
+
+        <header class="menu-topo">
+    <div class="logo-area">
+        <img src="agiliza.png" alt="Agiliza Estoque">
+    </div>
+
+    <nav class="menu-links">
+        <a href="inicio.html">Início</a>
+        <a href="index.html">Sobre</a>
+        <a href="funcionalidades.html">Funcionalidades</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+</header>
+
+        <section id="funcionalidades" class="funcionalidades">
+
+    <h2>Funcionalidades do Agiliza Estoque</h2>
+
+    <p class="descricao">
+        Nosso software foi desenvolvido para automatizar e simplificar o controle
+        de estoque de empresas de todos os portes, reduzindo perdas, aumentando
+        produtividade e garantindo controle total em tempo real.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📦 Controle de Produtos</h3>
+            <p>Cadastro completo de produtos, categorias, códigos e controle automático de entradas e saídas.</p>
+        </div>
+
+        <div class="card">
+            <h3>📊 Relatórios Inteligentes</h3>
+            <p>Relatórios detalhados com indicadores estratégicos para tomada de decisão.</p>
+        </div>
+
+        <div class="card">
+            <h3>⚡ Atualização em Tempo Real</h3>
+            <p>Movimentações atualizadas instantaneamente para evitar erros e retrabalho.</p>
+        </div>
+
+        <div class="card">
+            <h3>🔐 Segurança de Dados</h3>
+            <p>Proteção avançada com controle de usuários e níveis de acesso.</p>
+        </div>
+
+    </div>
+
+    <div class="download-area">
+        <a href="agiliza-estoque-setup.exe" class="botao-download" download>
+            ⬇ Baixar Software
+        </a>
+    </div>
+
+</section>    
+
+       </body>
+
+       <style>
+
+        .menu{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:#f8fbff;
+    color:#2c3e50;
+}
+
+h1{
+    font-size:42px;
+    font-weight:700;
+    color:#0d2b52;
+}
+
+h2{
+    font-size:32px;
+    font-weight:600;
+    color:#0d2b52;
+}
+
+h3{
+    font-size:20px;
+    font-weight:600;
+    color:#0d2b52;
+}
+
+p{
+    font-size:16px;
+    line-height:1.7;
+    color:#5a6a85;
+}
+
+        /* ===== PADRÃO DE FONTE GLOBAL ===== */
+
+body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color:#004aad;
+}
+
+/* Títulos principais */
+h1, h2{
+    color:#004aad;
+    font-weight:700;
+}
+
+/* Subtítulos */
+h3{
+    color:#0056c7;
+    font-weight:600;
+}
+
+/* Parágrafos */
+p{
+    color:#2c3e50;
+    font-size:17px;
+    line-height:1.6;
+}
+
+/* Links */
+a{
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Funcionalidades */
+.funcionalidades h2{
+    color:#004aad;
+}
+
+.card h3{
+    color:#004aad;
+}
+
+/* Botão download no padrão azul do menu */
+.botao-download,
+form button{
+    background:linear-gradient(135deg,#1b4f91,#3a7bd5);
+    color:white;
+    padding:14px 30px;
+    border:none;
+    border-radius:50px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 10px 20px rgba(27,79,145,0.25);
+}
+
+.botao-download:hover,
+form button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 25px rgba(27,79,145,0.35);
+}
+
+        .menu-topo{
+    width:100%;
+    background:#e9e9e9;
+    padding:20px 80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:60px;
+}
+
+.logo-area img{
+    width:120px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.menu-links a{
+    text-decoration:none;
+    color:#0d2b52;
+    font-weight:500;
+    margin-left:30px;
+    position:relative;
+    transition:0.3s;
+}
+
+.menu-links a:hover::after{
+    width:100%;
+}
+
+.menu-links a::after{
+    content:"";
+    width:0%;
+    height:2px;
+    background:#1b4f91;
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    transition:0.3s;
+}
+
+ .funcionalidades{
+    padding: 100px 10%;
+    text-align: center;
+    background: #f4f8ff;
+}
+
+.funcionalidades h2{
+    font-size: 36px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.descricao{
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    font-size: 18px;
+    color: #555;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card{
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+}
+
+.card h3{
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+.download-area{
+    margin-top: 50px;
+}
+
+.botao-download{
+    background: linear-gradient(45deg, #003366, #0055aa);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.botao-download:hover{
+    background: linear-gradient(45deg, #0055aa, #0077dd);
+}
+
+       </style>
+
+
+   </head>
+
+</html>

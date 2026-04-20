@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Início - Agiliza Estoque</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+    .performance-section {
+    min-height: 100vh;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-container {
+    border: 1px solid rgba(0,180,255,0.15);
+}
+
+h2 {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #00c6ff;
+}
+
+
+nav {
+    background: rgba(3, 15, 30, 0.95);
+    border-bottom: 1px solid rgba(0,180,255,0.15);
+    backdrop-filter: blur(10px);
+}
+
+
+
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0,180,255,0.08), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(0,120,255,0.06), transparent 40%),
+        linear-gradient(180deg, #031326 0%, #041c34 50%, #03101f 100%);
+    color: #fff;
+}
+
+/* Textura hexagonal sutil */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #02101f 0%, #031a2f 50%, #02101f 100%);
+    color: white;
+    position: relative;
+}
+
+/* textura controlada */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+}
+
+/* garante que conteúdo fique acima */
+header,
+section,
+.dashboard,
+.chart-container {
+    position: relative;
+    z-index: 1;
+}
+
+.dashboard {
+    margin-top: 10px;
+    width: 650px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centraliza conteúdo */
+}
+
+#grafico {
+    width: 100%;
+    max-width: 600px;
+    height: 180px;
+    display: block;
+}
+
+
+
+
+.dashboard h3 {
+    margin-bottom: 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #00c6ff;
+}
+
+        
+
+        .logo-menu img{
+    border-radius:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+    .logo-menu img{
+    width:120px;
+    border-radius:30px;  
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    display:block;
+}
+
+/* efeito leve ao passar o mouse */
+.logo-menu img:hover{
+    transform: scale(1.05);
+}
+
+        .menu{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.menu nav a{
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu nav a:hover{
+    color: #00aaff;
+}
+
+        body{
+            margin:0;
+            font-family: Arial;
+        }
+
+        .inicio{
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .video-bg{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .overlay{
+            position:absolute;
+            width:100%;
+            height:100%;
+            background: rgba(0, 32, 80, 0.7);
+            z-index:-1;
+        }
+
+        .conteudo{
+            z-index:2;
+        }
+
+        h1{
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        p{
+            font-size: 20px;
+        }
+
+.estatisticas{
+    padding-top: 90px;
+    padding-bottom: 15px;
+    gap: 15px;
+}
+
+/* textura leve */
+.estatisticas::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+    opacity: 0.05;
+    top: 0;
+    left: 0;
+}
+
+.titulo-inicio{
+    font-size: 28px;
+    margin: 0;
+}
+
+.subtitulo{
+    font-size: 14px;
+    margin: 5px 0 15px 0;
+    max-width: 600px;
+}
+
+.kpi-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 95%;
+    max-width: 1000px;
+    margin: 10px auto;
+}
+
+.kpi-card {
+    padding: 15px;
+    border-radius: 14px;
+}
+
+.kpi-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 50px rgba(0,150,255,0.3);
+}
+
+.kpi-card .icone {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.kpi-card h2 {
+    font-size: 22px;
+}
+
+.kpi-card p {
+    font-size: 11px;
+}
+
+/* CARD PRINCIPAL */
+.slider {
+    width: 480px;
+    height: 280px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0,180,255,0.15);
+    box-shadow: 0 0 60px rgba(0,150,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Slides centralizados corretamente */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 0.5s ease;
+    text-align: center;
+}
+
+/* Slide ativo */
+.slide.ativo {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Ícone */
+.icone {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+/* Número */
+.slide h2 {
+    font-size: 42px;
+    color: #00c6ff;
+    margin: 10px 0;
+}
+
+/* Texto */
+.slide p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.seta {
+    position: absolute;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 15px 18px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.seta.esquerda {
+    left: -70px;
+}
+
+.seta.direita {
+    right: -70px;
+}
+
+.seta:hover {
+    background: #00c6ff;
+    box-shadow: 0 0 20px #00c6ff;
+}
+
+.indicadores{
+    margin-top: 40px;
+}
+
+.dot{
+    height: 12px;
+    width: 12px;
+    margin: 0 6px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.dot.ativo{
+    background-color: #00b3ff;
+    transform: scale(1.4);
+}
+
+    </style>
+</head>
+
+<body>
+
+   <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const contadores = document.querySelectorAll(".contador");
+
+    contadores.forEach(contador => {
+
+        const valorFinal = +contador.dataset.valor;
+        let atual = 0;
+        const incremento = valorFinal / 80;
+
+        function animar(){
+
+            atual += incremento;
+
+            if(atual < valorFinal){
+                contador.textContent = Math.floor(atual).toLocaleString();
+                requestAnimationFrame(animar);
+            } else {
+                contador.textContent = valorFinal.toLocaleString() + "+";
+            }
+        }
+
+        animar();
+    });
+
+});
+</script>
+
+    <script>
+if(localStorage.getItem("usuarioLogado") !== "true"){
+    window.location.replace("login.html");
+}
+</script>
+
+<button onclick="logout()">Sair</button>
+
+<script>
+function logout(){
+    localStorage.removeItem("usuarioLogado");
+    window.location.replace("login.html");
+}
+</script>
+
+    <header class="menu">
+    <div class="logo-menu">
+        <img src="agiliza.png" width="120">
+    </div>
+
+    <nav>
+        <a href="inicio.html">Início</a>
+        <a href="index.html">Sobre</a>
+        <a href="funcionalidades.html">Funcionalidades</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+</header>
+
+<section class="estatisticas">
+
+    <h1 class="titulo-inicio">Início</h1>
+    <p class="subtitulo">
+        Soluções inteligentes para empresas que buscam controle, performance e crescimento sustentável.
+    </p>
+
+   <div class="kpi-container">
+
+    <div class="kpi-card">
+        <div class="icone">🏢</div>
+        <h2 class="contador" data-valor="1500">0</h2>
+        <p>Empresas Atendidas</p>
+    </div>
+
+    <div class="kpi-card">
+        <div class="icone">👍</div>
+        <h2 class="contador" data-valor="98">0</h2>
+        <p>% de Satisfação</p>
+    </div>
+
+    <div class="kpi-card">
+        <div class="icone">📦</div>
+        <h2 class="contador" data-valor="50000">0</h2>
+        <p>Produtos Gerenciados</p>
+    </div>
+
+    <div class="kpi-card">
+        <div class="icone">🎧</div>
+        <h2>24h</h2>
+        <p>Suporte Especializado</p>
+    </div>
+
+</div>
+
+        <button class="seta direita">&#10095;</button>
+
+    </div>
+
+    <div class="indicadores">
+        <span class="dot ativo"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <div class="dashboard">
+
+    <h3>Performance Operacional</h3>
+
+   <canvas id="grafico"></canvas>
+
+</div>
+
+
+
+</section>
+  
+   <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    let slideAtual = 0;
+    const slides = document.querySelectorAll(".slide");
+    const btnEsquerda = document.querySelector(".esquerda");
+    const btnDireita = document.querySelector(".direita");
+
+    function mostrarSlide(index){
+        slides.forEach(slide => slide.classList.remove("ativo"));
+        slides[index].classList.add("ativo");
+    }
+
+    btnDireita.addEventListener("click", function(){
+        slideAtual++;
+        if(slideAtual >= slides.length){
+            slideAtual = 0;
+        }
+        mostrarSlide(slideAtual);
+    });
+
+    btnEsquerda.addEventListener("click", function(){
+        slideAtual--;
+        if(slideAtual < 0){
+            slideAtual = slides.length - 1;
+        }
+        mostrarSlide(slideAtual);
+    });
+
+});
+</script> 
+
+   <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    let slideAtual = 0;
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+    const btnEsquerda = document.querySelector(".esquerda");
+    const btnDireita = document.querySelector(".direita");
+
+    function atualizarSlider(novoIndex){
+        slides.forEach(slide => slide.classList.remove("ativo"));
+        dots.forEach(dot => dot.classList.remove("ativo"));
+
+        slides[novoIndex].classList.add("ativo");
+        dots[novoIndex].classList.add("ativo");
+
+        slideAtual = novoIndex;
+        animarContador(slides[novoIndex]);
+    }
+
+    btnDireita.addEventListener("click", function(){
+        let novo = (slideAtual + 1) % slides.length;
+        atualizarSlider(novo);
+    });
+
+    btnEsquerda.addEventListener("click", function(){
+        let novo = (slideAtual - 1 + slides.length) % slides.length;
+        atualizarSlider(novo);
+    });
+
+    function animarContador(slide){
+        const contador = slide.querySelector(".contador");
+        if(!contador) return;
+
+        const valorFinal = +contador.dataset.valor;
+        let atual = 0;
+        const incremento = valorFinal / 50;
+
+        const intervalo = setInterval(() => {
+            atual += incremento;
+            if(atual >= valorFinal){
+                contador.textContent = valorFinal.toLocaleString() + "+";
+                clearInterval(intervalo);
+            } else {
+                contador.textContent = Math.floor(atual).toLocaleString();
+            }
+        }, 20);
+    }
+
+    atualizarSlider(0);
+
+    setInterval(() => {
+        let novo = (slideAtual + 1) % slides.length;
+        atualizarSlider(novo);
+    }, 6000);
+
+});
+</script>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const canvas = document.getElementById("grafico");
+    const ctx = canvas.getContext("2d");
+
+    const dados = [30, 45, 40, 60, 80, 75, 95];
+    let progresso = 0;
+
+    function desenharLinha(progress) {
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // GRID estilo BI
+        ctx.strokeStyle = "rgba(255,255,255,0.05)";
+        ctx.lineWidth = 1;
+
+        for (let i = 0; i < 5; i++) {
+            let y = (canvas.height / 5) * i;
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(canvas.width, y);
+            ctx.stroke();
+        }
+
+        // Área preenchida animada
+        ctx.beginPath();
+        dados.forEach((valor, i) => {
+
+            const x = (i / (dados.length - 1)) * canvas.width;
+            const y = canvas.height - (valor * 2 * progress);
+
+            if (i === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        });
+
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.lineTo(0, canvas.height);
+        ctx.closePath();
+
+        let gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        gradient.addColorStop(0, "rgba(0,198,255,0.4)");
+        gradient.addColorStop(1, "rgba(0,198,255,0.05)");
+
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // Linha principal com glow
+        ctx.strokeStyle = "#00c6ff";
+        ctx.lineWidth = 3;
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = "#00c6ff";
+
+        ctx.beginPath();
+        dados.forEach((valor, i) => {
+
+            const x = (i / (dados.length - 1)) * canvas.width;
+            const y = canvas.height - (valor * 2 * progress);
+
+            if (i === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        });
+
+        ctx.stroke();
+
+        // Pontos pulsando
+        dados.forEach((valor, i) => {
+
+            const x = (i / (dados.length - 1)) * canvas.width;
+            const y = canvas.height - (valor * 2 * progress);
+
+            ctx.beginPath();
+            ctx.arc(x, y, 6 + Math.sin(Date.now() / 300) * 2, 0, Math.PI * 2);
+            ctx.fillStyle = "#00c6ff";
+            ctx.fill();
+        
+        const canvas = document.getElementById("grafico");
+const ctx = canvas.getContext("2d");
+
+/* Ajuste automático */
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+        });
+    }
+
+    function animar() {
+        progresso += 0.02;
+        if (progresso > 1) progresso = 1;
+
+        desenharLinha(progresso);
+
+        if (progresso < 1) {
+            requestAnimationFrame(animar);
+        }
+    }
+
+    animar();
+});
+</script>
+
+
+
+</body>
+</html>

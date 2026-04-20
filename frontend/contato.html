@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato - Agiliza Estoque</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="menu">
+    <div class="logo-menu">
+        <img src="agiliza.png" alt="Agiliza Estoque">
+    </div>
+
+    <nav class="menu-links">
+        <a href="inicio.html">Início</a>
+        <a href="index.html">Sobre</a>
+        <a href="funcionalidades.html">Funcionalidades</a>
+        <a href="contato.html" class="ativo">Contato</a>
+    </nav>
+</header>
+
+<section class="contato">
+    <h1>Entre em Contato</h1>
+    <p>Fale com a equipe do Agiliza Estoque e agilize a gestão da sua empresa.</p>
+
+    <div class="contato-container">
+
+        <form>
+            <input type="text" placeholder="Seu Nome" required>
+            <input type="email" placeholder="Seu Email" required>
+            <textarea placeholder="Digite sua mensagem..." rows="5" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+
+        <div class="info-contato">
+            <h3>Email:</h3>
+            <p>contato@agilizaestoque.com.br</p>
+
+            <h3>Atendimento:</h3>
+            <p>Segunda a Sexta</p>
+            <p>08h às 18h</p>
+        </div>
+
+    </div>
+</section>
+
+</body>
+
+<style>
+
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:#f8fbff;
+    color:#2c3e50;
+}
+
+h1{
+    font-size:42px;
+    font-weight:700;
+    color:#0d2b52;
+}
+
+h2{
+    font-size:32px;
+    font-weight:600;
+    color:#0d2b52;
+}
+
+h3{
+    font-size:20px;
+    font-weight:600;
+    color:#0d2b52;
+}
+
+p{
+    font-size:16px;
+    line-height:1.7;
+    color:#5a6a85;
+}
+
+    /* ===== PADRÃO GLOBAL DO AGILIZA ===== */
+
+body{
+    margin:0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color:#2c3e50;
+}
+
+/* Títulos */
+h1, h2{
+    color:#1b4f91;
+    font-weight:700;
+}
+
+/* Subtítulos */
+h3{
+    color:#1b4f91;
+    font-weight:600;
+}
+
+/* Parágrafos */
+p{
+    font-size:16px;
+    line-height:1.6;
+}
+
+    /* MENU PRINCIPAL */
+.menu{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo-menu img{
+    width:120px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.menu-links a{
+    text-decoration:none;
+    color:#0d2b52;
+    font-weight:500;
+    margin-left:30px;
+    position:relative;
+    transition:0.3s;
+}
+
+.menu-links a::after{
+    content:"";
+    width:0%;
+    height:2px;
+    background:#1b4f91;
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    transition:0.3s;
+}
+
+.menu-links a:hover::after{
+    width:100%;
+}
+
+/* LOGO */
+.logo-menu img{
+    width:120px;
+    border-radius:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* LINKS */
+.menu-links a{
+    text-decoration:none;
+    color:#1b4f91;
+    font-weight:600;
+    margin-left:30px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.menu-links a:hover{
+    color:#154070;
+}
+
+/* LINK ATIVO */
+.menu-links .ativo{
+    border-bottom:2px solid #1b4f91;
+    padding-bottom:5px;
+}
+
+.contato{
+    padding:80px 10%;
+    text-align:center;
+}
+
+.contato h1{
+    font-size:36px;
+    color:#1b4f91;
+    margin-bottom:10px;
+}
+
+.contato-container{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    width:350px;
+    gap:15px;
+}
+
+form input,
+form textarea{
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+form button{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#1b4f91;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+form button:hover{
+    background:#154070;
+}
+
+.info-contato{
+    text-align:left;
+}
+
+</style>
+
+</html>
