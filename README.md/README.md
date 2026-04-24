@@ -1,26 +1,24 @@
-## Agiliza 
+# Agiliza Estoque
 
-Sistema web para controle de estoque.
+Sistema de controle de estoque para pequenos negócios.
 
 ## Tecnologias
+
 - Node.js
+- Express
 - MySQL
 - JavaScript
-- HTML
-- CSS
 
 ## Funcionalidades
+
 - Cadastro de produtos
-- Controle de estoque
-- Dashboard
-- Relatórios
+- Controle de entrada e saída
+- Atualização automática do estoque
 
-## Como executar
+## Como rodar o projeto
 
-1. Instalar dependências
+git clone https://github.com/Salesalex05/agiliza-estoque
 
 npm install
-
-2. Rodar servidor
 
 node server.js
